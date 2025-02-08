@@ -4,31 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+png+jpeg+xml" href="icon-image/user-icon.svg">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
+    <!-- From Google Fonts and Icons -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" /> -->
     <link rel="stylesheet" href="myStyle.css">
+    <!-- <link rel="stylesheet" href="myTwoStyle.css"> -->
     <title>Generate UI_Pwd</title>
+    
 </head>
 <body>
     <div class="mainBody">
         <div class="userNameSection">
             <label for="">username: </label>
             <input type="text" placeholder="username">            
-            <span class="material-symbols-rounded">content_copy</span>
-            <div class="rangeSlider">
+            <!-- <span class="material-symbols-rounded">content_copy</span> -->
+            <img src="icon-image/copy_Icon.png" alt="Copy" class="uidCopyIcon" width="30" height="30">
+
+            <div class="rangeUidSlider">
                 <input type="range" min="8" max="20" value="8">
                 <span class="rangeNoUsername">8</span>
             </div>
             <div class="btnGenerateUserSection">
                 <button class="btnGenerateUserName">Generate UserName</button>
-            </div>
-            
+            </div>           
 
         </div>
         <div class="pwdSection">
             <label for="">password: </label>
             <input type="text" placeholder="password">
-            <span class="material-symbols-rounded">content_copy</span>
-            <div class="rangeSlider">
+            <img src="icon-image/copy_Icon.png" alt="Copy" class="pwdCopyIcon" width="30" height="30">
+            <div class="rangePwdSlider">
                 <input type="range" min="8" max="20" value="8">
                 <span class="rangeNoPassword">8</span>
             </div>
