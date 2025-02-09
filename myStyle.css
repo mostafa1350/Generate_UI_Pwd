@@ -43,6 +43,13 @@ body{
     border:1px solid #997649;
     border-radius:4px;
 }
+.suggestUID{
+    margin-top:16px;
+    display:flex;
+    justify-content:left;
+    align-items:center;
+
+}
 /* =========================== */
 .rangeUidSlider input, .rangePwdSlider input{
     cursor:pointer;

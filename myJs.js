@@ -1,5 +1,6 @@
 // ================= FOR UID ================
 const uidInput = document.querySelector(".userNameSection input"),
+      suggestUID = document.querySelector(".suggestUID input"),
       copyIconUID = document.querySelector(".userNameSection .uidCopyIcon"),
       rangUidInput = document.querySelector(".rangeUidSlider input"),
       uidSliderNo = document.querySelector(".rangeUidSlider .rangeNoUsername"),
@@ -12,7 +13,8 @@ const pwdInput = document.querySelector(".pwdSection input"),
       btnGeneratePwd = document.querySelector(".btnGeneratePass");
 // ================== CHARS =================
 const charsForMakePwd = "1234567890AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz!@#$%^&*()-+{}:;.<>~[]";
-const charsForMakeUid = "1234567890AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz@";
+const charsMainForMakeUid = "1234567890AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+const charsSymbolinFirstUid = "$_@#&";
 
 
 // ============== SLIDER VALUE ================
@@ -25,22 +27,26 @@ rangPwdInput.addEventListener("input",()=>{
 // ================= FUNCTIONs & ... ================
 // make UID function to produce random password
 const makeUid = ()=>{
-    console.log("chars Length =>" + charsForMakeUid.length);
+    console.log("chars Length =>" + charsMainForMakeUid.length);
    let newUidContent = uidInput.value ;
-   let newLenghtUid = parseInt(uidInput.length);
+   let newLenghtUid = parseInt(newUidContent.length);
+   //Select One of Symbol in the first User
+   let randSymbolUid = Math.floor(Math.random() * charsSymbolinFirstUid.length);
+
+
    console.log("inputt Length => "+ newUidContent.length);
 
-//    if(newLenghtUid===0){
-//     for (let index = 0; index < rangUidInput.value; index++) {
-//         let randNoUid = Math.floor(Math.random()*charsForMakeUid.length);
-//         newUidContent +=charsForMakeUid[randNoUid];        
-//        }
-//        console.log(newUidContent);
-//        uidInput.value = newUidContent;
-//    }
-//    else if(newLenghtUid>uidInput.length){
-
-//    }
+    if (newLenghtUid == 0) {
+        window.alert("Plz write a User Name ...");
+        suggestUID.value = "";
+    } else {
+        for (let index = 0; index < rangUidInput.value; index++) {
+            let randNoUid = Math.floor(Math.random() * charsMainForMakeUid.length);
+            newUidContent += charsMainForMakeUid[randNoUid];
+        }
+        console.log(newUidContent);
+        suggestUID.value = charsSymbolinFirstUid[randSymbolUid] + newUidContent;
+    }
 }
 // =============== btn Event UID(CLICK) =============
 
@@ -48,8 +54,8 @@ btnGenerateUserName.addEventListener("click",makeUid);
 // =============== COPY UID =============
 
 copyIconUID.addEventListener("click",()=>{
-    navigator.clipboard.writeText(uidInput.value);
-    window.alert("UID Copied ...");
+    navigator.clipboard.writeText(suggestUID.value);
+    window.confirm("Suggested UserName is :\n\n" + suggestUID.value + "\n\n That's Copied on clipboard...");
 });
 // =================== PWD SECTION ====================
 
